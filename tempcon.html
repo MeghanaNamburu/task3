@@ -1,0 +1,50 @@
+<html>
+<head>
+    <style>
+        body{
+            width: 100%;
+            background: url("temp.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+            position: relative;
+            font-family: sans-serif;
+        }
+    </style>
+    <title>Temperature Converter</title>
+    <script>
+        function convertTemperature() {
+            var inputTemperature = document.getElementById("inputTemperature").value;
+            var unit = document.getElementById("unit").value;
+            var outputTemperature = document.getElementById("outputTemperature");
+            
+            if (unit === "celsius-to-fahrenheit") {
+                outputTemperature.value = (inputTemperature * 9/5) + 32;
+            } else if (unit === "fahrenheit-to-celsius") {
+                outputTemperature.value = (inputTemperature - 32) * 5/9;
+            } else {
+                outputTemperature.value = inputTemperature;
+            }
+        }
+    </script>
+</head>
+<body>
+    <br><br>
+    <h1 style="margin-left:22%;color:white">Temperature Converter</h1>
+    <div align="center" style="margin-top:10%;border:1px solid;width:27%;margin-left:20%;height:25%;
+    border-radius:5%;background:white"><br>
+    <label for="inputTemperature">Input Temperature:</label>
+    <input type="number" id="inputTemperature">
+    <br><br>
+    <label for="unit">Unit:</label>
+    <select id="unit">
+        <option value="celsius-to-fahrenheit">Celsius to Fahrenheit</option>
+        <option value="fahrenheit-to-celsius">Fahrenheit to Celsius</option>
+    </select>
+    <br><br>
+    <label for="outputTemperature">Output Temperature:</label>
+    <input type="number" id="outputTemperature" readonly><br><br>
+    <button onclick="convertTemperature()">Submit</button>
+    </div>
+</body>
+</html>
